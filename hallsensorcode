@@ -1,0 +1,13 @@
+const int analogInPin = I0; // Analog input pin that the Hall Sensor is attached to const int digitalOutPin= O0; // Digital output pin that the LED is attached to 
+ 
+int sensorValue = 0; // value read from the Linear pot 
+ 
+void setup() { // initialize serial communications at 9600 bps: Serial.begin(9600);  pinMode(digitalOutPin, OUTPUT); } 
+ 
+void loop() { // read the analog in value: 
+ 
+sensorValue = analogRead(analogInPin);  
+ 
+if (sensorValue < 505) { // notice that the normal value of the sensor is 510 digitalWrite(digitalOutPin, HIGH); } else { digitalWrite(digitalOutPin, LOW); } // print the results to the serial monitor: Serial.print("Hall Sensor Value = " );  Serial.println(sensorValue);  
+ 
+// wait 10 milliseconds before the next loop // for the analog-to-digital converter to settle // after the last reading: delay(10);
